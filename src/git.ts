@@ -138,7 +138,7 @@ export function writeJiraTicket(jiraTicket: string, config: JPCMConfig): void {
     // In the first line should be special conventional format
     const firstLine = lines[0];
     debug(`Finding conventional commit in: ${firstLine}`);
-    conventionalCommitRegExp.lastIndex = -1;
+    conventionalCommitRegExp.lastIndex = 0;
     const [match, type, scope, msg] = conventionalCommitRegExp.exec(firstLine) ?? [];
     if (match) {
       debug(`Conventional commit message: ${match}`);
